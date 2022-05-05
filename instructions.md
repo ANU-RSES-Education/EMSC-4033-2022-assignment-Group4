@@ -64,7 +64,15 @@ Some tasks will be yes/no: Y (100) / N (0)
 
 | Task | Assessed | Mark percentage %|
 |:-------------- |:-----------:|:-----:|
-| Does the notebook run                     | Yes/No | X % |
-| Was at least one review well constructed  | A, B, C, F | X1 % |
-| Meaningful tests ?                        | A, B, C, F | X1 % |
-
+| **Individual task**                          |            |      |
+| Does the notebook run                        | Yes/No     | 10 % |
+| Meaningful tests for functions               | A, B, C, F | 10 % |
+| Helpful docstrings for functions             | A, B, C, F | 10 % |
+| Is the code commented/readable?              | A, B, C, F | 10 % |
+| Documentation for the notebook itself        | A, B, C, F | 5 % |
+| At least one issue been raised               | A, B, C, F | 10 % |
+| At least one PR review well constructed      | A, B, C, F | 10 % |
+| At least one PR well constructed             | A, B, C, F | 10 % |
+| **Group task**                               |            |      |
+| Created a collaboration `report.md`? Descriptive enough? | A, B, C, F | 15 % |
+| Created a collaborative `README.md` describing the repository's purpose and how user can navigate through. | A, B, C, F | 15 % |
