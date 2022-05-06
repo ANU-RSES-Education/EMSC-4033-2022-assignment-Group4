@@ -58,7 +58,7 @@ def my_coastlines(resolution):
 
     import cartopy.feature as cfeature
 
-    return cfeature.NaturalEarthFeature('physcical', 'coastline', res,
+    return cfeature.NaturalEarthFeature('physical', 'coastline', res,
                                         edgecolor=(0.0,0.0,0.0),
                                         facecolor="none")
 
