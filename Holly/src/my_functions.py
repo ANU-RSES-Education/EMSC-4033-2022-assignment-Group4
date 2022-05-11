@@ -12,18 +12,18 @@ from .dependencies import *
 def my_documentation():
 
     markdown_documentation = """   
-# Notebook documentation
+# Notebook documentation:
     
-## my_functions package 
+## My 'my_functions' package:
 
-The functions within this package were adapted and elborated on to make the notebook run and produce processed data output for earthquake events from 01/01/1975 to 01/01/2022 (inclusive). To produce a map of these events, code for coastlines, waterfeatures, a basemap, point data and raster data as contours were written and used.
+The functions within this package were adapted and elborated on to make the notebook run and produce a map for earthquake events from 01/01/1975 to 01/01/2022 (inclusive). To produce a map of these events, code for coastlines, waterfeatures, a basemap, point data and raster data as contours were written and used to process the data.
 
-## `Python` documentation
+## `Python` documentation format:
 
 The general set up of the notebook is as follows:
 
 ```python
-# These indicate comments, found in the notebook and the my_functions.py code file.
+# These indicate comments that explain the code, found in the notebook and the my_functions.py code file.
 
 print("output")
 # Above is an example of calling a function to print the output it has process and produced.
@@ -46,25 +46,29 @@ def my_coastlines(resolution):
 # 10m has been defined in the return function as that is the coastlines resolution the notebook code asks for.
 
 def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
-    """Returns a [list] of cartopy features"""
+    """ Returns a [list] of cartopy water features at the requested resolution """
     
     features = []
     
     if rivers:
-        features.append('50m')
+        cfeature.NaturalEarthFeature('physical', 'rivers_lake_centerlines', '50m',
+                                        edgecolor='Blue', facecolor="none")
         
     if lakes:
-        features.append('50m')
+        cfeature.NaturalEarthFeature('physical', 'lakes', '50m',
+                                        edgecolor="blue", facecolor="blue")
 
     if ocean:
-        features.append('50m')
+        cfeature.NaturalEarthFeature('physical', 'ocean', '50m',
+                           edgecolor="green",
+                           facecolor="blue")
     
     return features
 
 # 50m has been defined in the return function as that is the water features resolution the notebook code asks for.
 
 def my_basemaps():
-    """Returns a dictionary of map tile generators that cartopy can use"""
+    """ Returns a dictionary of map tile generators that cartopy can use """
     
     ## The full list of available interfaces is found in the source code for this one:
     ## https://github.com/SciTools/cartopy/blob/master/lib/cartopy/io/img_tiles.py
@@ -110,7 +114,7 @@ def download_point_data(region):
 
     eq_origins = np.zeros((event_count, 5))
 
-    # Define the output parameters written in the array, specifically longitutde, latitude, depth, magnitude and time of each earthquake event.
+    # Create dictionary for the parameters so the output displays the data categorised for each parameter. 
 
     for ev, event in enumerate(cat.events):
         eq_origins[ev,0] = dict(event.origins[0])['longitude']
@@ -123,6 +127,7 @@ def download_point_data(region):
 
 
 def my_point_data(region):
+    """ Returns point data however it has been formatted """
     
     data = download_point_data(region)
     
@@ -168,7 +173,8 @@ def download_raster_data():
 
 
 def my_global_raster_data():
-
+    """ Returns raster data however it has been formatted """
+    
     raster = download_raster_data()
     
     return raster
