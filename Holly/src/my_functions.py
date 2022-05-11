@@ -12,40 +12,21 @@ from .dependencies import *
 def my_documentation():
 
     markdown_documentation = """   
-# Haec progressio est tabula faciens
+# Notebook documentation
     
-## Moderni progressio programmandi 
+## my_functions package 
 
-Moderni programmandi rationem habet organicam, accumsan sentientem, ut mirum inveniat. 
-In hoc cursu discimus quomodo per laminis perlegere discamus quomodo programmata aedificent et 
-quomodo nostra edificent. Incipiamus cum aliquibus praecipuis quaestionibus. 
+The functions within this package were adapted and elborated on to make the notebook run and produce processed data output for earthquake events from 01/01/1975 to 01/01/2022 (inclusive). To produce a map of these events, code for coastlines, waterfeatures, a basemap, point data and raster data as contours were written and used.
 
-## Quid computatorium ? 
+## `Python` documentation
 
-Computatorium classicum est machina alicuius generis ad informationes 
-puras expediendas. Varia elementa opus sunt ad hoc possibilis efficiendum, 
-inter quas aliqua instrumenta initialisendi et recondendi informationes ante 
-et post discursum est, et ma- china ad informationes expediendas (including casus 
-ubi processus pendet ab ipsa informatione). Multae variae machinis his criteriis 
-occurrere possunt, sed plerumque unam saltem exigentiam adiungimus:
-
-## Aequationes mathematicae 
-
-Per "Navier-Stokes" datae sunt
-
-$$
-    \\frac{D \\mathbf{u}}{Dt} -\\nabla \cdot \\eta \\left( \\nabla \mathbf{u} + 
-    \\nabla \mathbf{u}^T \\right) - \\nabla p = \cdots
-$$
-
-
-## `Python` documentum
-
-Python hic est aliquis codicem quem animum advertere volumus
+The general set up of the notebook is as follows:
 
 ```python
-# The classic "hello world" program
-print("salve mundi !")
+# These indicate comments, found in the notebook and the my_functions.py code file.
+
+print("output")
+# Above is an example of calling a function to print the output it has process and produced.
 ```
 """
     
@@ -58,10 +39,11 @@ def my_coastlines(resolution):
 
     import cartopy.feature as cfeature
 
-    return cfeature.NaturalEarthFeature('physcical', 'coastline', res,
+    return cfeature.NaturalEarthFeature('physical', 'coastline', '10m',
                                         edgecolor=(0.0,0.0,0.0),
                                         facecolor="none")
 
+# 10m has been defined in the return function as that is the coastlines resolution the notebook code asks for.
 
 def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     """Returns a [list] of cartopy features"""
@@ -69,15 +51,17 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     features = []
     
     if rivers:
-        features.append(something)
+        features.append('50m')
         
     if lakes:
-        features.append(somethingelse)
+        features.append('50m')
 
     if ocean:
-        features.append(somethingelse)
+        features.append('50m')
     
     return features
+
+# 50m has been defined in the return function as that is the water features resolution the notebook code asks for.
 
 def my_basemaps():
     """Returns a dictionary of map tile generators that cartopy can use"""
@@ -91,9 +75,8 @@ def my_basemaps():
     
     ## Open Street map
     mapper["open_street_map"] = cimgt.OSM()
-
+    
     return mapper
-
 
 ## specify some point data (e.g. global seismicity in this case)
 
@@ -108,9 +91,16 @@ def download_point_data(region):
     extent = region
 
     starttime = UTCDateTime("1975-01-01")
-    endtime   = UTCDateTime("2022-01-01")
+    endtime   = UTCDateTime("2022-01-01")    
     
-    cat = client.get_events...
+    # Define startime and endtime as parameters in the function. Define more parameters so that get_events doesn't overload and stop running with too many individual points.
+
+    cat = client.get_events(starttime=starttime, endtime=endtime,
+                         minlongitude=region[0],
+                         maxlongitude=region[1],
+                         minlatitude=region[2],
+                         maxlatitude=region[3],
+                         minmagnitude=5.5, catalog="ISC")
 
     print ("Point data: {} events in catalogue".format(cat.count()))
     
@@ -118,9 +108,16 @@ def download_point_data(region):
 
     event_count = cat.count()
 
-    eq_origins = np.zeros((event_count, 4))
+    eq_origins = np.zeros((event_count, 5))
 
-    some_code
+    # Define the output parameters written in the array, specifically longitutde, latitude, depth, magnitude and time of each earthquake event.
+
+    for ev, event in enumerate(cat.events):
+        eq_origins[ev,0] = dict(event.origins[0])['longitude']
+        eq_origins[ev,1] = dict(event.origins[0])['latitude']
+        eq_origins[ev,2] = dict(event.origins[0])['depth']
+        eq_origins[ev,3] = dict(event.magnitudes[0])['mag']
+        eq_origins[ev,4] = (dict(event.origins[0])['time']).date.year
 
     return eq_origins
 
@@ -153,6 +150,19 @@ def download_raster_data():
 
     datasize = (1801, 3601, 3)
     raster_data = np.empty(datasize)
+    
+    # Produce raster cotaining longitutde, latitude and age data.
+
+    raster = np.load("global_age_data.3.6.z.npz")["ageData"]
+
+    lats = np.linspace(90, -90, datasize[0])
+    lons = np.linspace(-180.0,180.0, datasize[1])
+
+    arrlons,arrlats = np.meshgrid(lons, lats)
+
+    raster_data[...,0] = arrlons[...]
+    raster_data[...,1] = arrlats[...]
+    raster_data[...,2] = raster[...]
 
     return raster_data
 
