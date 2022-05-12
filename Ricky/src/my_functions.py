@@ -58,7 +58,7 @@ def my_coastlines(resolution):
 
     import cartopy.feature as cfeature
 
-    return cfeature.NaturalEarthFeature('physical', 'coastline', res,
+    return cfeature.NaturalEarthFeature('physical', 'coastline', resolution,
                                         edgecolor=(0.0,0.0,0.0),
                                         facecolor="none")
 
@@ -69,15 +69,16 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     features = []
     
     if rivers:
-        features.append(something)
+        features.append("10m")
         
     if lakes:
-        features.append(somethingelse)
+        features.append("50m")
 
     if ocean:
-        features.append(somethingelse)
+        features.append("110m")
     
     return features
+
 
 def my_basemaps():
     """Returns a dictionary of map tile generators that cartopy can use"""
