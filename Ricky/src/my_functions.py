@@ -68,14 +68,25 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     
     features = []
     
-    if rivers:
-        features.append("10m")
-        
-    if lakes:
-        features.append("50m")
+    lakes= cfeature.NaturalEarthFeature('physical', 'lakes', resolution,
+                                        edgecolor="yellow",
+                                        facecolor="none")
+    
+    rivers= cfeature.NaturalEarthFeature('physical', 'rivers', resolution,
+                                        edgecolor= "green",
+                                        facecolor="none")
+    
+    ocean= cfeature.NaturalEarthFeature('physical', 'ocean', resolution,
+                                        edgecolor="purple",
+                                        facecolor="none")
+    if lakes == True:
+        features.append(lakes)
+    
+    if rivers == True:
+        features.append(rivers)
 
-    if ocean:
-        features.append("110m")
+    if ocean == True:
+        features.append(ocean)
     
     return features
 
@@ -90,10 +101,11 @@ def my_basemaps():
     
     mapper = {}
     
-    ## Open Street map
-    mapper["open_street_map"] = cimgt.OSM()
+    ## Open mapbox_outdooor
+    mapper["mapbox_outdoors"] = cimgt.MapboxTiles(map_id='outdoors-v11', access_token='pk.eyJ1IjoibG91aXNtb3Jlc2kiLCJhIjoiY2pzeG1mZzFqMG5sZDQ0czF5YzY1NmZ4cSJ9.lpsUzmLasydBlS0IOqe5JA')
 
     return mapper
+
 
 
 ## specify some point data (e.g. global seismicity in this case)
@@ -106,12 +118,11 @@ def download_point_data(region):
 
     client = Client("IRIS")
 
-    extent = region
-
-    starttime = UTCDateTime("1975-01-01")
+    starttime = UTCDateTime("1999-01-01")
     endtime   = UTCDateTime("2022-01-01")
     
-    cat = client.get_events...
+    cat = client.get_events(starttime=starttime, endtime=endtime, minmagnitude=5,
+                            catalog="ISC")
 
     print ("Point data: {} events in catalogue".format(cat.count()))
     
@@ -119,11 +130,18 @@ def download_point_data(region):
 
     event_count = cat.count()
 
-    eq_origins = np.zeros((event_count, 4))
+    eq_origins = np.zeros((event_count, 5))
 
-    some_code
+
+    for ev, event in enumerate(cat.events):
+        eq_origins[ev,0] = dict(event.origins[0])['longitude']
+        eq_origins[ev,1] = dict(event.origins[0])['latitude']
+        eq_origins[ev,2] = dict(event.origins[0])['depth']
+        eq_origins[ev,3] = dict(event.magnitudes[0])['mag']
+        eq_origins[ev,4] = (dict(event.origins[0])['time']).date.year
 
     return eq_origins
+
 
 
 def my_point_data(region):
@@ -149,13 +167,26 @@ def download_raster_data():
     # But this is super slow, so I have just stored the Age data on the grid (1801 x 3601) which we can reconstruct easily
 
     from cloudstor import cloudstor
+    
     teaching_data = cloudstor(url="L93TxcmtLQzcfbk", password='')
-    teaching_data.download_file_if_distinct("global_age_data.3.6.z.npz", "global_age_data.3.6.z.npz")
+    teaching_data.download_file_if_distinct("global_age_data.3.6.z.npz", "Resources/global_age_data.3.6.z.npz")
 
     datasize = (1801, 3601, 3)
-    raster_data = np.empty(datasize)
+    raster = np.empty(datasize)
 
-    return raster_data
+    ages = np.load("Resources/global_age_data.3.6.z.npz")["ageData"]
+
+    lats = np.linspace(90, -90, datasize[0])
+    lons = np.linspace(-180.0,180.0, datasize[1])
+
+    arrlons,arrlats = np.meshgrid(lons, lats)
+
+    raster[...,0] = arrlons[...]
+    raster[...,1] = arrlats[...]
+    raster[...,2] = ages[...]
+    
+
+    return raster
 
 
 def my_global_raster_data():
