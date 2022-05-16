@@ -104,7 +104,7 @@ def download_point_data(region):
                          maxlongitude=region[1],
                          minlatitude=region[2],
                          maxlatitude=region[3],
-                         minmagnitude=5.5, catalog="ISC")
+                         minmagnitude=4, catalog="ISC")
 
     print ("Point data: {} events in catalogue".format(cat.count()))
     
