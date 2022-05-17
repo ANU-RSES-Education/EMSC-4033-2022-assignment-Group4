@@ -1,6 +1,8 @@
 # EMSC4033-2022-Assignment
 The repository provides guides and examples to produce maps which include visual information regarding water features, earthquakes and seafloor age. The user has the option to define the extent of the map, the types of water features and the minimum earthquake magnitude that will be projected on the map. 
 
+# MapMaker Guide
+
 **Map Details**
 
 Each folder in the repository uses the python package 'Cartopy' to process geospatial data and produce maps. On the MapMaker notebook, the user begins by specifying the coordinate extent that defines the desired map boundaries (Examples show the San Francisco region). Different folders also offer different map tile generators (basemaps) that the user can select to form the foundation of the map. 
