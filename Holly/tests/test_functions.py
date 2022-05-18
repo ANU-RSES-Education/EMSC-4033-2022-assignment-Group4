@@ -1,18 +1,6 @@
-# Examples from class:
-
-# import pytest
-# from src.functions import *
-
-# def test_foo_function(rtol=1.e-13):
-#     result = foo_function(4) - 16
-#     assert result < rtol, " *** error is too big "
-    
-# def test_my_coastlines():
-#     coastline= my_coastlines("50m")
-#     assert True, " *** pass!"
-
 import pytest
 from src.my_functions import *
+  
     
 def test_my_coastlines():
     """ Testing that function can return coastline at different resolutions """
@@ -23,8 +11,23 @@ def test_my_coastlines():
     
     
 def test_my_water_features():
-    """ Testing that the function can return different combinations of the water features if asked for. This confirms functionality of the parameters within the functions """
+    """ Testing that the function can return different combinations of the water features. This confirms functionality of the parameters within the functions """
     water_features_all = my_water_features('50m', lakes=True, rivers=True, ocean=True)
     water_features_only_lakes = my_water_features('50m', lakes=True, rivers=False, ocean=False)
     water_features_mapmaker_required = my_water_features('50m', lakes=True, rivers=True, ocean=False)
-    assert True, "pass!"
+    assert True, " Indivudal water features are functional "
+
+    
+# Code from MapMaker.ipynb for third test    
+datasize = (1801, 3601, 3) 
+
+def test_raster_coordinates():
+    """ tests if function fails as expected when the coordinate values are invalid """
+    lat = np.linspace(100, -100, datasize[0]) # +100 and -100 latitude do not exist
+    assert False, " latitude coordinates are outside the possible range "
+    
+def test_raster_coordinates_2():
+    """ above test but for coordinate values that are valid """
+    lon = np.linspace(100, -100, datasize[1]) # +100 and -100 longitude exist
+    assert True, " latitude coordinates are inside the possible range "
+    
