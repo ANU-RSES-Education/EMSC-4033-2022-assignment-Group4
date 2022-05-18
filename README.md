@@ -7,15 +7,15 @@ Once you open the repository, you should see the first three folders with the na
 
 **src folder**
 
-Inside a name folder, the first folder called **src** is a source folder with functions we wrote to create a map step by step. Inside the **src** folder, click on the **my_functions** file, and you can read through how these functions contribute to the map-making and our intentions behind them. my_functions file is the core component, providing function definition for the MapMaker to run. We have brief docstrings and comments there available to make the codes easy to follow. The **dependences** file is also crucial. It has all dependencies we need to import to make the notebook run. For example. Here we import Numpy and Cartopy packages to help construct these features on the map. The **functions** file only contains a sample function.
+Inside each member's folder, the first folder called **src** is a source folder with functions we wrote to create a map step by step. Inside the **src** folder, click on the **my_functions** file, then you can read through how these functions contribute to the map-making and our intentions behind them. my_functions file is the core component, providing function definition for the MapMaker to run. We have brief docstrings and comments there available to make the codes easy to follow. The **dependences** file is also crucial. It has all dependencies we need to import to make the notebook run. For example. Here we import Numpy and Cartopy packages to help construct these features on the map. The **functions** file only contains a sample function.
 
 **tests folder**
 
-Let’s move back to the name folder, you would see the second folder inside called **tests**. You can open the tests folder to access a file called **test_functions.py** to see how we manage to test our functions to make sure these functions work as we expected. They are predominantly pytest based.
+Let’s move back to each member's main folder, you would see the second folder inside called **tests**. You can open the tests folder to access a file called **test_functions.py** to see how we manage to test our functions to make sure these functions work as we expected. They are predominantly pytest based.
 
 **MapMaker.ipynb and RunTests. ipynb files**
 
-To actually run the mapmaker and the corresponding tests, go back to the name folder again and open the third and fourth files called **MapMaker.ipynb** and **RunTests. ipynb** respectively. Simply run the whole block of codes and you can have a map on hand.
+To actually run the mapmaker and the corresponding tests, go back to the main folder again and open the third and fourth files called **MapMaker.ipynb** and **RunTests. ipynb** respectively. Simply run the whole block of codes and you can have a map on hand.
 
 To know more details about the MapMaker file and how it works, please read carefully the following MapMaker Guide. Copy this repository on your device, run it, test it out and have fun with it.
 
