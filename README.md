@@ -1,23 +1,23 @@
 # EMSC4033-2022-Assignment
 The repository provides guides and examples to produce maps which include visual information regarding water features, earthquakes and seafloor age. The user has the option to define the extent of the map, the types of water features and the minimum earthquake magnitude that will be projected on the map. 
 
-# Guide to access the repository
+# Guide to navigating the repository
 To anyone who clicks in and wants to make a map, welcome! The contents of this repository are there to help you make a simple map.
-Once you open the repository, you should see the first three folders with the names of our group members. By clicking into one of these folders, you can access the individual notebook each of us wrote to create a map. All three folders with our names have the same configuration. 
+When you open the repository, you should see three folders with the names of our group members. By clicking into one of these folders, you can access the individual notebook each of us wrote to create a map. All three folders with our names have the same configuration. 
 
 **src folder**
 
-Inside each member's folder, the first folder called **src** is a source folder with functions we wrote to create a map step by step. Inside the **src** folder, click on the **my_functions** file, then you can read through how these functions contribute to the map-making and our intentions behind them. my_functions file is the core component, providing function definition for the MapMaker to run. We have brief docstrings and comments there available to make the codes easy to follow. The **dependences** file is also crucial. It has all dependencies we need to import to make the notebook run. For example. Here we import Numpy and Cartopy packages to help construct these features on the map. The **functions** file only contains a sample function.
+Within each member's folder, the first folder, **src**, is a source folder with functions we wrote to create a map step by step. Inside the **src** folder, the **my_functions** file contains the functions for the mapmaker to run. Docstrings and comments provided on these functions make the code easy to follow. The **dependences** file is also crucial. It has all dependencies we need to import to make the notebook run. For example, importing the Numpy and Cartopy packages is essential for constructing certain features on the map. The **functions** file contains a sample function.
 
 **tests folder**
 
-Let’s move back to each member's main folder, you would see the second folder inside called **tests**. You can open the tests folder to access a file called **test_functions.py** to see how we manage to test our functions to make sure these functions work as we expected. They are predominantly pytest based.
+Moving back to each member's main folder, you will see the second folder inside called **tests**. You can open the tests folder to access **test_functions.py**. This shows how we tested our functions in the **my_functions** file to make sure these functions work as we expected. They are predominantly pytest based.
 
-**MapMaker.ipynb and RunTests. ipynb files**
+**MapMaker.ipynb and RunTests.ipynb files**
 
-To actually run the mapmaker and the corresponding tests, go back to the main folder again and open the third and fourth files called **MapMaker.ipynb** and **RunTests. ipynb** respectively. Simply run the whole block of codes and you can have a map on hand.
+To run the mapmaker and the corresponding tests, return to the main folder and open the third and fourth files, **MapMaker.ipynb** and **RunTests.ipynb** respectively. Simply run **MapMaker.ipynb** and you will produce a map. Running **RunTests.ipynb** will show you whether the written tests for the functions have passed, and if not, what errors have occured.
 
-To know more details about the MapMaker file and how it works, please read carefully the following MapMaker Guide. Copy this repository on your device, run it, test it out and have fun with it.
+For more details about the MapMaker file and how it works, please read the following MapMaker Guide. Feel free to copy this repository, run it, test it out and have fun with it!
 
 # MapMaker Guide
 
