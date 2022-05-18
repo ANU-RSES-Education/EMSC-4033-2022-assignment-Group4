@@ -7,7 +7,7 @@ Once you open the repository, you should see the first three folders with the na
 
 **src folder**
 
-Inside each member's folder, the first folder called **src** is a source folder with functions we wrote to create a map step by step. Inside the **src** folder, click on the **my_functions** file, then you can read through how these functions contribute to the map-making and our intentions behind them. my_functions file is the core component, providing function definition for the MapMaker to run. We have brief docstrings and comments there available to make the codes easy to follow. The **dependences** file is also crucial. It has all dependencies we need to import to make the notebook run. For example. Here we import Numpy and Cartopy packages to help construct these features on the map. The **functions** file only contains a sample function.
+Inside each member's folder, the first folder called **src** is a source folder with functions we wrote to create a map step by step. Inside the **src** folder, click on the **my_functions.py** file, then you can read through how these functions contribute to the map-making and our intentions behind them. my_functions file is the core component, providing function definition for the MapMaker to run. We have brief docstrings and comments there available to make the codes easy to follow. The **dependences.py** file is also crucial. It has all dependencies we need to import to make the notebook run. For example. Here we import Numpy and Cartopy packages to help construct these features on the map. The **functions.py** file only contains a sample function.
 
 **tests folder**
 
