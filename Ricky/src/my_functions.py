@@ -12,47 +12,16 @@ from .dependencies import *
 def my_documentation():
 
     markdown_documentation = """   
-# Haec progressio est tabula faciens
-    
-## Moderni progressio programmandi 
+# This notebook shows a simple procedure for making a map with geological features including water features, global seismicity (as point data) and seafloor ages (as raster data).
 
-Moderni programmandi rationem habet organicam, accumsan sentientem, ut mirum inveniat. 
-In hoc cursu discimus quomodo per laminis perlegere discamus quomodo programmata aedificent et 
-quomodo nostra edificent. Incipiamus cum aliquibus praecipuis quaestionibus. 
-
-## Quid computatorium ? 
-
-Computatorium classicum est machina alicuius generis ad informationes 
-puras expediendas. Varia elementa opus sunt ad hoc possibilis efficiendum, 
-inter quas aliqua instrumenta initialisendi et recondendi informationes ante 
-et post discursum est, et ma- china ad informationes expediendas (including casus 
-ubi processus pendet ab ipsa informatione). Multae variae machinis his criteriis 
-occurrere possunt, sed plerumque unam saltem exigentiam adiungimus:
-
-## Aequationes mathematicae 
-
-Per "Navier-Stokes" datae sunt
-
-$$
-    \\frac{D \\mathbf{u}}{Dt} -\\nabla \cdot \\eta \\left( \\nabla \mathbf{u} + 
-    \\nabla \mathbf{u}^T \\right) - \\nabla p = \cdots
-$$
-
-
-## `Python` documentum
-
-Python hic est aliquis codicem quem animum advertere volumus
-
-```python
-# The classic "hello world" program
-print("salve mundi !")
-```
 """
     
     return markdown_documentation
 
 
-
+#Add the coastlines feature using cartopy
+#Here I define a function using cfeature.NaturalEarthFeature()
+#To use this function, input one of resolutions, 10m, 50m and 110m.
 def my_coastlines(resolution):
     """ returns the relevant coastlines at the requested resolution """
 
@@ -62,8 +31,9 @@ def my_coastlines(resolution):
                                         edgecolor=(0.0,0.0,0.0),
                                         facecolor="none")
 
-
-def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
+#Here I want to make a list of water features including lakes, rivers and the ocean.
+#Using the cfeature.NaturalEarthFeature() again
+def my_water_features(resolution, lakes=True, rivers=True, ocean=True):
     """Returns a [list] of cartopy features"""
     
     features = []
@@ -90,7 +60,7 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     
     return features
 
-
+#Create a dictionary of map tile generators that cartopy can use with the token provided
 def my_basemaps():
     """Returns a dictionary of map tile generators that cartopy can use"""
     
@@ -100,6 +70,8 @@ def my_basemaps():
     # dictionary of possible basemap tile objects
     
     mapper = {}
+    ## Open Street Map
+    mapper["open_street_map"] = cimgt.OSM()  
     
     ## Open mapbox_outdooor
     mapper["mapbox_outdoors"] = cimgt.MapboxTiles(map_id='outdoors-v11', access_token='pk.eyJ1IjoibG91aXNtb3Jlc2kiLCJhIjoiY2pzeG1mZzFqMG5sZDQ0czF5YzY1NmZ4cSJ9.lpsUzmLasydBlS0IOqe5JA')
@@ -108,7 +80,7 @@ def my_basemaps():
 
 
 
-## specify some point data (e.g. global seismicity in this case)
+## specify some point data (e.g. global seismicity in this case) (e.g. from 1999_01_01 to 2022_01_01 with minimum magnitude of 5.)
 
 def download_point_data(region):
     
@@ -141,7 +113,6 @@ def download_point_data(region):
         eq_origins[ev,4] = (dict(event.origins[0])['time']).date.year
 
     return eq_origins
-
 
 
 def my_point_data(region):
