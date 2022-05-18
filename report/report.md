@@ -24,12 +24,12 @@ Tests were written for our individual my_functions.py files in test_function.py 
 
 Our individual tests can be viewed and run by clicking on the following links:
 
-- Edgar test_functions.py: https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Edgar/tests/test_functions.py
-- Edgar RunTest.ipynb: https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Edgar/RunTests.ipynb
-- Holly test_functions.py: https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Holly/tests/test_functions.py
-- Holly RunTest.ipynb: https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Holly/RunTests.ipynb
-- Ricky test_functions.py: https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Ricky/tests/test_functions.py
-- Ricky RunTest.ipynb: https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Ricky/RunTests.ipynb
+- [Edgar test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Edgar/tests/test_functions.py)
+- [Edgar RunTest.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Edgar/RunTests.ipynb)
+- [Holly test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Holly/tests/test_functions.py)
+- [Holly RunTest.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Holly/RunTests.ipynb)
+- [Ricky test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Ricky/tests/test_functions.py)
+- [Ricky RunTest.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group4/blob/f021afd1d671db8c6759f76de1d2a0600d502ae7/Ricky/RunTests.ipynb)
 
 # Adding documentation/docstrings
 
