@@ -3,12 +3,11 @@ The repository provides guides and examples to produce maps which include visual
 
 # Guide to access the repository
 To anyone who clicks in and wants to make a map, welcome! The contents of this repository are there to help you make a simple geological map.
-Once you open the repository, you should see the first three folders with the names of our group members. By clicking into one of the name folders, you can access the individual notebook each of us wrote to create a map.
-All three name folders have the same configuration. 
+Once you open the repository, you should see the first three folders with the names of our group members. By clicking into one of the name folders, you can access the individual notebook each of us wrote to create a map. All three name folders have the same configuration. 
 
 **src folder**
 
-Inside a name folder, the first folder called **src** is a source folder with functions we wrote to create a map step by step. Inside the **src** folder, click on the **my_functions** file, and you can read through how these functions contribute to the map-making and our intentions behind them. my_functions file is the core component, providing function definition for the MapMaker to run. We have brief docstrings and comments there available to make the codes easy to follow. The **dependences** file is also crucial. It has all dependencies we need to import to make the notebook run. For example. Here we import Numpy and Cartopy packages to help contrast these features on the map. The functions file only contains a sample function 
+Inside a name folder, the first folder called **src** is a source folder with functions we wrote to create a map step by step. Inside the **src** folder, click on the **my_functions** file, and you can read through how these functions contribute to the map-making and our intentions behind them. my_functions file is the core component, providing function definition for the MapMaker to run. We have brief docstrings and comments there available to make the codes easy to follow. The **dependences** file is also crucial. It has all dependencies we need to import to make the notebook run. For example. Here we import Numpy and Cartopy packages to help construct these features on the map. The **functions** file only contains a sample function.
 
 **tests folder**
 
