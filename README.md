@@ -2,8 +2,8 @@
 The repository provides guides and examples to produce maps which include visual information regarding water features, earthquakes and seafloor age. The user has the option to define the extent of the map, the types of water features and the minimum earthquake magnitude that will be projected on the map. 
 
 # Guide to access the repository
-To anyone who clicks in and wants to make a map, welcome! The contents of this repository are there to help you make a simple geological map.
-Once you open the repository, you should see the first three folders with the names of our group members. By clicking into one of the name folders, you can access the individual notebook each of us wrote to create a map. All three name folders have the same configuration. 
+To anyone who clicks in and wants to make a map, welcome! The contents of this repository are there to help you make a simple map.
+Once you open the repository, you should see the first three folders with the names of our group members. By clicking into one of these folders, you can access the individual notebook each of us wrote to create a map. All three folders with our names have the same configuration. 
 
 **src folder**
 
